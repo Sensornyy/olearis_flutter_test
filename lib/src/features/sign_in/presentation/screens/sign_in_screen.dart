@@ -32,36 +32,39 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SignInBloc(),
-      child: Scaffold(
-        appBar: const SignInAppBar(),
-        body: CustomScrollbar(
-          child: CustomScrollView(
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              SliverFillRemaining(
-                hasScrollBody: false,
-                fillOverscroll: true,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: UIConstants.largePadding,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const AppLogo(
-                        height: UIConstants.logoHeight,
-                        width: double.infinity,
-                      ),
-                      SignInTextFields(
-                        loginController: loginController,
-                        passwordController: passwordController,
-                      ),
-                      const SignInButton(),
-                    ],
+      child: GestureDetector(
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        child: Scaffold(
+          appBar: const SignInAppBar(),
+          body: CustomScrollbar(
+            child: CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  fillOverscroll: true,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: UIConstants.largePadding,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const AppLogo(
+                          height: UIConstants.logoHeight,
+                          width: double.infinity,
+                        ),
+                        SignInTextFields(
+                          loginController: loginController,
+                          passwordController: passwordController,
+                        ),
+                        const SignInButton(),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
