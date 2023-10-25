@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:olearis_flutter_test/src/features/home/presentation/screens/home_screen.dart';
 import 'package:olearis_flutter_test/src/features/sign_in/constants/sign_in_strings.dart';
+import 'package:olearis_flutter_test/src/features/sign_in/constants/sign_in_ui_constants.dart';
 import 'package:olearis_flutter_test/src/features/sign_in/presentation/bloc/sign_in_bloc.dart';
+import 'package:olearis_flutter_test/src/features/sign_in/presentation/widgets/sign_in_loader.dart';
+import 'package:olearis_flutter_test/src/shared/constants/ui_constants.dart';
 
 class SignInButton extends StatelessWidget {
   const SignInButton({Key? key}) : super(key: key);
@@ -14,21 +17,16 @@ class SignInButton extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           signedIn: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomeScreen(),
-              ),
-            );
+            context.go('/home');
           },
         );
       },
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.only(top: UIConstants.smallPadding),
           child: SizedBox(
-            height: 35,
-            width: 100,
+            height: SignInUIConstants.signInButtonHeight,
+            width: SignInUIConstants.signInButtonWidth,
             child: ElevatedButton(
               onPressed: state.whenOrNull(
                 enabled: () {
@@ -36,22 +34,17 @@ class SignInButton extends StatelessWidget {
                         const SignInEvent.signIn(),
                       );
                 },
+                signedIn: () {
+                  return () => BlocProvider.of<SignInBloc>(context).add(
+                        const SignInEvent.signIn(),
+                      );
+                },
                 disabled: () => null,
                 loading: () => () {},
-                signedIn: () => () {},
               ),
               child: state.maybeWhen(
                 orElse: () => const Text(SignInStrings.continueString),
-                loading: () => const Center(
-                  child: SizedBox(
-                    height: 18,
-                    width: 18,
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
-                      strokeWidth: 2,
-                    ),
-                  ),
-                ),
+                loading: () => const SignInLoader(),
               ),
             ),
           ),

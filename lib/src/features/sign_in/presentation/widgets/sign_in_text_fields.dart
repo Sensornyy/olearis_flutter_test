@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:olearis_flutter_test/src/features/sign_in/constants/sign_in_strings.dart';
 import 'package:olearis_flutter_test/src/features/sign_in/presentation/bloc/sign_in_bloc.dart';
+import 'package:olearis_flutter_test/src/shared/constants/ui_constants.dart';
 
 class SignInTextFields extends StatelessWidget {
   final TextEditingController loginController;
@@ -30,7 +31,7 @@ class SignInTextFields extends StatelessWidget {
           },
           decoration: const InputDecoration(hintText: SignInStrings.login),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: UIConstants.smallPadding),
         TextField(
           controller: passwordController,
           onChanged: (password) {
