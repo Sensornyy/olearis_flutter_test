@@ -44,7 +44,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.max,
                     children: [
                       const AppLogo(
                         height: 100,
