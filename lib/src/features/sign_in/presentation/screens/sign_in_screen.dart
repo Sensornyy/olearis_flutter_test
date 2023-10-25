@@ -5,8 +5,9 @@ import 'package:olearis_flutter_test/src/features/sign_in/presentation/bloc/sign
 import 'package:olearis_flutter_test/src/features/sign_in/presentation/widgets/sign_in_app_bar.dart';
 import 'package:olearis_flutter_test/src/features/sign_in/presentation/widgets/sign_in_button.dart';
 import 'package:olearis_flutter_test/src/features/sign_in/presentation/widgets/sign_in_text_fields.dart';
+import 'package:olearis_flutter_test/src/shared/constants/ui_constants.dart';
 import 'package:olearis_flutter_test/src/shared/widgets/app_logo.dart';
-import 'package:olearis_flutter_test/src/shared/widgets/custom_scroll_bar.dart';
+import 'package:olearis_flutter_test/src/shared/widgets/custom_scrollbar.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -33,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
       create: (context) => SignInBloc(),
       child: Scaffold(
         appBar: const SignInAppBar(),
-        body: CustomScrollBar(
+        body: CustomScrollbar(
           child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
             slivers: [
@@ -41,12 +42,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 hasScrollBody: false,
                 fillOverscroll: true,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: UIConstants.largePadding,
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       const AppLogo(
-                        height: 100,
+                        height: UIConstants.logoHeight,
                         width: double.infinity,
                       ),
                       SignInTextFields(
