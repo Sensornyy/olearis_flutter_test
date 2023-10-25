@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:olearis_flutter_test/src/features/home/bloc/home_cubit.dart';
 import 'package:olearis_flutter_test/src/features/home/constants/home_strings.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,11 +19,15 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: const Text(HomeStrings.markupTest),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            BlocProvider.of<HomeCubit>(context).removeLastItem();
+          },
           icon: const Icon(Icons.remove),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            BlocProvider.of<HomeCubit>(context).addItem();
+          },
           icon: const Icon(Icons.add),
         ),
       ],
