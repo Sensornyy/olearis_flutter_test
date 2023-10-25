@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:olearis_flutter_test/src/features/home/bloc/home_cubit.dart';
 import 'package:olearis_flutter_test/src/features/home/constants/home_ui_constants.dart';
-import 'package:olearis_flutter_test/src/features/home/widgets/item_container.dart';
+import 'package:olearis_flutter_test/src/features/home/presentation/bloc/home_cubit.dart';
+import 'package:olearis_flutter_test/src/features/home/presentation/widgets/item_container.dart';
 
 class ItemsGridView extends StatelessWidget {
   const ItemsGridView({Key? key}) : super(key: key);

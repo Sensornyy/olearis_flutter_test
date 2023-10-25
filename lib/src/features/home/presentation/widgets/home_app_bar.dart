@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:olearis_flutter_test/src/features/home/bloc/home_cubit.dart';
 import 'package:olearis_flutter_test/src/features/home/constants/home_strings.dart';
+import 'package:olearis_flutter_test/src/features/home/presentation/bloc/home_cubit.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({Key? key}) : super(key: key);

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:olearis_flutter_test/src/features/home/bloc/home_cubit.dart';
 import 'package:olearis_flutter_test/src/features/home/constants/home_ui_constants.dart';
-import 'package:olearis_flutter_test/src/features/home/widgets/home_app_bar.dart';
-import 'package:olearis_flutter_test/src/features/home/widgets/items_grid_view.dart';
+import 'package:olearis_flutter_test/src/features/home/presentation/bloc/home_cubit.dart';
+import 'package:olearis_flutter_test/src/features/home/presentation/widgets/home_app_bar.dart';
+import 'package:olearis_flutter_test/src/features/home/presentation/widgets/items_grid_view.dart';
 import 'package:olearis_flutter_test/src/shared/constants/ui_constants.dart';
 import 'package:olearis_flutter_test/src/shared/widgets/app_logo.dart';
 import 'package:olearis_flutter_test/src/shared/widgets/custom_scrollbar.dart';
