@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:olearis_flutter_test/src/features/home/constants/home_strings.dart';
 
 part 'home_state.dart';
